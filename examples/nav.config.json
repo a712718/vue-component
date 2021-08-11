@@ -72,6 +72,10 @@
               "title": "Button 按钮"
             },
             {
+              "path": "/button-mh",
+              "title": "Button MH 按钮"
+            },
+            {
               "path": "/link",
               "title": "Link 文字链接"
             }
