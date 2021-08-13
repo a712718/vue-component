@@ -2,7 +2,7 @@
   <button
   class="el-button"
   :type="nativeType"
-  :disabled="disabled"
+  :disabled="disabled || loading"
   :autofocus="autofocus"
   :class="[
   type ? 'el-button--' + type : '',
@@ -17,8 +17,8 @@
   @click="handleClick"
   >
   <i class="el-icon-loading" v-if="loading"></i>
-  <i :class="icon" v-if="icon"></i>
-  <slot></slot>
+  <i :class="icon" v-if="icon && !loading"></i>
+  <span v-if="$slots.default"><slot></slot></span>
   </button>
 </template>
 <script>

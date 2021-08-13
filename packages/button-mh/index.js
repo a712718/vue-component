@@ -1,6 +1,6 @@
-import ElButtomMh from './src/button';
+import ElButtonMh from './src/button';
 
-ElButtomMh.install = function(Vue) {
-  Vue.component(ElButtomMh.name, ElButtomMh);
+ElButtonMh.install = function(Vue) {
+  Vue.component(ElButtonMh.name, ElButtonMh);
 };
-export default ElButtomMh;
+export default ElButtonMh;

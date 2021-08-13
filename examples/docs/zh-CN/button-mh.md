@@ -36,3 +36,15 @@
 </script>
 ```
 :::
+
+### button-group
+
+:::demo
+
+```html
+  <el-button-group-mh>
+    <el-button-mh>默认按钮</el-button-mh>
+    <el-button-mh type="primary">主要按钮</el-button-mh>
+  </el-button-group-mh>
+```
+:::

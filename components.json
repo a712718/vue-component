@@ -81,5 +81,6 @@
   "avatar": "./packages/avatar/index.js",
   "drawer": "./packages/drawer/index.js",
   "popconfirm": "./packages/popconfirm/index.js",
-  "button-mh": "./packages/button-mh/index.js"
+  "button-mh": "./packages/button-mh/index.js",
+  "button-group-mh": "./packages/buttom-group-mh/index.js"
 }
