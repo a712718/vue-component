@@ -84,6 +84,7 @@ import Drawer from '../packages/drawer/index.js';
 import Popconfirm from '../packages/popconfirm/index.js';
 import ButtonMh from '../packages/button-mh/index.js';
 import ButtonGroupMh from '../packages/button-group-mh/index.js';
+import InputMh from '../packages/input-mh/index.js';
 import locale from 'element-ui/src/locale';
 import CollapseTransition from 'element-ui/src/transitions/collapse-transition';
 
@@ -167,6 +168,7 @@ const components = [
   Popconfirm,
   ButtonMh,
   ButtonGroupMh,
+  InputMh,
   CollapseTransition
 ];
 
@@ -290,5 +292,6 @@ export default {
   Drawer,
   Popconfirm,
   ButtonMh,
-  ButtonGroupMh
+  ButtonGroupMh,
+  InputMh
 };
