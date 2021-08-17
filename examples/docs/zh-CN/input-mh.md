@@ -33,6 +33,60 @@ Input为受控组件
 ```
 :::
 
+### maxlength/minlength
+
+
+:::demo
+```html
+<el-input-mh v-model="value" placeholder="请输入内容" :maxlength="10"/>
+<script>
+  export default {
+    data () {
+      return {
+        value: 123
+      }
+    },
+    updated() {
+      console.log('value,,,,,,,,,', this.value);
+    }
+    
+  }
+</script>
+```
+:::
+
+### 带icon的输入框
+
+
+:::demo
+```html
+<el-input-mh
+  v-model="value"
+  placeholder="请输入内容"
+  suffix-icon="el-icon-search"
+  />
+<el-input-mh
+  v-model="value"
+  placeholder="请输入内容"
+  >
+  <i slot="suffix" class="el-input__icon el-icon-date"></i>
+</el-input-mh>
+<script>
+  export default {
+    data () {
+      return {
+        value: 123
+      }
+    },
+    updated() {
+      console.log('value,,,,,,,,,', this.value);
+    }
+    
+  }
+</script>
+```
+:::
+
 ### textarea
 
 :::demo
