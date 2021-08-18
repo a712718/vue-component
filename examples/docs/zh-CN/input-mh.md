@@ -33,6 +33,26 @@ Input为受控组件
 ```
 :::
 
+### size
+
+:::demo
+```html
+<el-input-mh v-model="value" placeholder="mini" size="mini"/>
+<el-input-mh v-model="value" placeholder="small" size="small"/>
+<el-input-mh v-model="value" placeholder="medium" size="medium"/>
+<el-input-mh v-model="value" placeholder="large" size="large"/>
+<el-input-mh v-model="value" placeholder="请输入内容"/>
+<script>
+  export default {
+    data () {
+      return {
+        value: ''
+      }
+    },
+  }
+</script>
+```
+:::
 ### maxlength/minlength
 
 
@@ -70,6 +90,39 @@ Input为受控组件
   placeholder="请输入内容"
   >
   <i slot="suffix" class="el-input__icon el-icon-date"></i>
+</el-input-mh>
+<script>
+  export default {
+    data () {
+      return {
+        value: 123
+      }
+    },
+    updated() {
+      console.log('value,,,,,,,,,', this.value);
+    }
+    
+  }
+</script>
+```
+:::
+
+### 复合型输入框
+
+:::demo
+```html
+<el-input-mh
+  v-model="value"
+  placeholder="请输入内容"
+  >
+  <template slot="prepend">http://</template>
+</el-input-mh>
+<el-input-mh
+  v-model="value"
+  placeholder="请输入内容"
+  >
+   <template slot="append"><i class="el-input__icon el-icon-date"></i></template>
+  
 </el-input-mh>
 <script>
   export default {

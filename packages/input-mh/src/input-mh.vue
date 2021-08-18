@@ -1,10 +1,18 @@
 <template>
 <div :class="[
-  type==='textarea' ? 'el-textarea': 'el-input'
+  type==='textarea' ? 'el-textarea': 'el-input',
+  size? 'el-input--' + size: '',
+  {
+    'el-input-group':  $slots.prepend || $slots.append,
+    'el-input-group--append': $slots.append,
+    'el-input-group--prepend': $slots.prepend,
+    'el-input--prefix': $slots.prefix || prefixIcon,
+    'el-input--suffix': $slots.suffix || suffixIcon || clearable || showPassword
+  }
 ]">
   <template v-if="type!== 'textarea'">
     <!-- 前置元素 -->
-    <div>
+    <div v-if="$slots.prepend" class="el-input-group__prepend">
       <slot name="prepend"></slot>
     </div>
     <input
@@ -12,9 +20,14 @@
     v-bind="$attrs"
     class="el-input__inner"
     @input="handleInput"
-    @change="handleChange"/>
+    @change="handleChange"
+    @compositionstart="handleCompositionStart"
+    @compositionend="handleCompositionEnd"
+    />
     <!-- 前置内容 -->
-    <span>
+    <span v-if="$slots.prefix || prefixIcon" class="el-input__prefix">
+      <slot name="prepend"></slot>
+      <i v-if="prefixIcon" :class="prefixIcon" class="el-input__icon"></i>
     </span>
     <!-- 后置内容 -->
     <span class="el-input__suffix">
@@ -29,7 +42,7 @@
       </span>
     </span>
     <!-- 后置元素 -->
-    <div>
+    <div v-if="$slots.append" class="el-input-group__append">
       <slot name="append"></slot>
     </div>
   </template>
@@ -48,6 +61,7 @@
     name: 'ElInputMh',
     props: {
       value: [Number, String],
+      size: String,
       type: {
         type: String,
         default: 'text'
@@ -55,7 +69,18 @@
       suffixIcon: {
         type: String,
         default: ''
-      }
+      },
+      prefixIcon: {
+        type: String,
+        default: ''
+      },
+      clearable: Boolean,
+      showPassword: Boolean
+    },
+    data() {
+      return {
+        isComposing: false
+      };
     },
     computed: {
       nativeInputValue() {
@@ -90,8 +115,18 @@
         this.$emit('change', event.target.value);
       },
       handleInput(event) {
+        if (this.isComposing) return;
         if (event.target.value === this.nativeInputValue) return;
         this.$emit('input', event.target.value);
+      },
+      handleCompositionStart() {
+        this.isComposing = true;
+      },
+      handleCompositionEnd(event) {
+        if (this.isComposing) {
+          this.isComposing = false;
+          this.handleInput(event);
+        }
       }
     }
   };
