@@ -85,6 +85,8 @@ import Popconfirm from '../packages/popconfirm/index.js';
 import ButtonMh from '../packages/button-mh/index.js';
 import ButtonGroupMh from '../packages/button-group-mh/index.js';
 import InputMh from '../packages/input-mh/index.js';
+import FormMh from '../packages/form-mh/index.js';
+import FormItemMh from '../packages/form-item-mh/index.js';
 import locale from 'element-ui/src/locale';
 import CollapseTransition from 'element-ui/src/transitions/collapse-transition';
 
@@ -169,6 +171,8 @@ const components = [
   ButtonMh,
   ButtonGroupMh,
   InputMh,
+  FormMh,
+  FormItemMh,
   CollapseTransition
 ];
 
@@ -293,5 +297,7 @@ export default {
   Popconfirm,
   ButtonMh,
   ButtonGroupMh,
-  InputMh
+  InputMh,
+  FormMh,
+  FormItemMh
 };

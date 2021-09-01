@@ -151,6 +151,10 @@
             {
               "path": "/form",
               "title": "Form 表单"
+            },
+            {
+              "path": "/form-mh",
+              "title": "FormMh 表单"
             }
           ]
         },
